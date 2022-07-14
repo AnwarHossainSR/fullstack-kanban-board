@@ -1,11 +1,11 @@
-import { Box } from '@mui/material';
-import { useState, useEffect } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import authUtils from '../../utils/authUtils';
-import Loading from '../common/Loading';
-import Sidebar from '../common/Sidebar';
-import { setUser } from '../../redux/features/userSlice';
+import { Box } from "@mui/material";
+import { useState, useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import authUtils from "../../utils/authUtils";
+import Loading from "../common/Loading";
+import Sidebar from "../common/Sidebar";
+import { setUser } from "../../redux/features/userSlice";
 
 const AppLayout = () => {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ const AppLayout = () => {
     const checkAuth = async () => {
       const user = await authUtils.isAuthenticated();
       if (!user) {
-        navigate('/login');
+        navigate("/login");
       } else {
         // save user
         dispatch(setUser(user));
@@ -31,7 +31,7 @@ const AppLayout = () => {
   ) : (
     <Box
       sx={{
-        display: 'flex',
+        display: "flex",
       }}
     >
       <Sidebar />
@@ -39,7 +39,7 @@ const AppLayout = () => {
         sx={{
           flexGrow: 1,
           p: 1,
-          width: 'max-content',
+          width: "max-content",
         }}
       >
         <Outlet />
